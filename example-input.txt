@@ -1,0 +1,69 @@
+____________________________________________________________
+
+Article Title
+
+Author: Article Author
+
+Publication info: Publishing company ; Publishing location Publishing date: start page.
+
+https://search.proquest.com/docview/892372
+
+Abstract: None available.
+
+Links: https://example.com
+
+https://something.com
+
+Full text: Full text
+Of an
+article
+description
+
+Subject: Ponies; Rainbows
+
+Location: Country
+
+Company / organization: People who do things
+
+Title: Article title
+
+Publication title: Publishing company; country
+
+First page: 9
+
+Publication year: 2020
+
+Publication date: Month Date, 2020
+
+Section: News
+
+Publisher: Publisher company
+
+Place of publication: Country
+
+Country of publication: Publisher country
+
+Publication subject: Type of article
+
+ISSN: 01234567
+
+Source type: Newspapers
+
+Language of publication: English
+
+Document type: News
+
+ProQuest document ID: 23847239847
+
+Document URL: https://search.proquest.com/docview/238947289347
+
+Copyright: Publisher company Month Date, 2020
+
+Last updated: Last date of update
+
+Database: ProQuest Central
+____________________________________________________________
+
+Contact us at: http://www.proquest.com/go/pqissupportcontact
+Database copyright © 2020 ProQuest LLC. All rights reserved.
+Terms and Conditions: https://search.proquest.com/info/termsAndConditions
