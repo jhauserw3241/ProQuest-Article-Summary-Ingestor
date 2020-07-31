@@ -5,17 +5,21 @@ import sys
 from datetime import datetime
 
 # Assign global variables
-INPUT_FILE = "../ProQuestDocuments-2020-07-27.txt"
-OUTPUT_XLSX_FILE = "../test-output.xlsx"
 HEADER_FILE = "headers.txt"
 ARTICLE_SEPARATOR = "____________________________________________________________\n"
 
 def main():
+    # Read in arguments
+    input_file_path = sys.argv[1]
+    print("input file", input_file_path)
+    output_file_path = sys.argv[2]
+    print("output file", output_file_path)
+
     # Get the start time of the current process
     start = datetime.now()
 
     # Open the Excel file
-    workbook = xlsxwriter.Workbook(OUTPUT_XLSX_FILE)
+    workbook = xlsxwriter.Workbook(output_file_path)
     worksheet = workbook.add_worksheet()
 
     worksheet_row_index = 0
@@ -36,7 +40,7 @@ def main():
     current_header = ""
 
     # Open the input text file
-    with open(INPUT_FILE, "r") as input_file:
+    with open(input_file_path, "r") as input_file:
         # Read through every line of the input file
         for line in input_file.readlines():
             # Discard empty lines
