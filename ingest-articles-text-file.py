@@ -11,9 +11,7 @@ ARTICLE_SEPARATOR = "___________________________________________________________
 def main():
     # Read in arguments
     input_file_path = sys.argv[1]
-    print("input file", input_file_path)
     output_file_path = sys.argv[2]
-    print("output file", output_file_path)
 
     # Get the start time of the current process
     start = datetime.now()
