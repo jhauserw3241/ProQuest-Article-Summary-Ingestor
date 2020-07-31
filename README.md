@@ -11,7 +11,9 @@ Follow the below steps to utilize the scripts.
 1. Run a search on the ProQuest database.
 2. Download the results of the search into the text file format. The text file should match the included example-input.txt.
 3. Run the get-article-headers.py script to get the list of possible headers from the input text file. The headers are identified by being the first phrase in a line in the text file before the characters ": ".
+
     `python get-article-headers.py`
 4. Delete any lines of text from the possible headers file (headers.txt) that aren't expected headers. The list of possible headers will be newline delimited.
 5. Run the ingestor script on the input file.
+
     `python ingest-articles-text-file.py`
