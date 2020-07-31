@@ -7,6 +7,7 @@ from datetime import datetime
 # Assign global variables
 INPUT_FILE = "../ProQuestDocuments-2020-07-27.txt"
 OUTPUT_XLSX_FILE = "../test-output.xlsx"
+HEADER_FILE = "headers.txt"
 ARTICLE_SEPARATOR = "____________________________________________________________\n"
 
 def main():
@@ -17,9 +18,21 @@ def main():
     workbook = xlsxwriter.Workbook(OUTPUT_XLSX_FILE)
     worksheet = workbook.add_worksheet()
 
+    worksheet_row_index = 0
+
+    # Pull in the article headers
+    possible_headers = []
+    with open(HEADER_FILE, "r") as header_file:
+        header_index = 0
+        for header_line in header_file.readlines():
+            header = header_line.split("\n")[0]
+            possible_headers.append(header)
+            worksheet.write(worksheet_row_index, header_index, header)
+            header_index += 1
+
+
     # Storage objects
     article = {}
-    headers = ["Title", "Abstract", "ISSN", "Document type", "Author", "Publication info", "Links", "Full text", "Credit", "Subject", "Location", "Publication title", "Publication year", "Publication date", "Section", "Publisher", "Place of publication", "Country of publication", "Publication subject", "Source type", "Language of publication", "First page" "ProQuest document ID", "Document URL", "Copyright", "Last updated", "Database"]
     article_info_line_index = 0
     current_header = ""
 
@@ -32,10 +45,19 @@ def main():
                 continue
             # Handle line separators 
             elif line == ARTICLE_SEPARATOR:
-                for key in article:
-                    print(key + ": " + article[key])
-                
+                # Go through all the headers
+                for header_index in range(len(possible_headers)):
+                    # Get the current header
+                    header_val = possible_headers[header_index]
 
+                    # Get the content for the current header within the article
+                    content_val = ""
+                    if header_val in article:
+                        content_val = article[header_val]
+                    
+                    # Write out the contents for the header in the Excel worksheet
+                    worksheet.write(worksheet_row_index, header_index, content_val)
+                worksheet_row_index += 1
 
                 # Empty out the article object
                 article = {}
@@ -59,7 +81,7 @@ def main():
                     line_contents = line_parts[0]
 
                 # Handle where there is an unexpected header
-                if line_header != "" and line_header in headers:
+                if line_header != "" and line_header in possible_headers:
                     # Update the current header for the content
                     current_header = line_header
                 else:
