@@ -30,7 +30,6 @@ def main():
             worksheet.write(worksheet_row_index, header_index, header)
             header_index += 1
 
-
     # Storage objects
     article = {}
     article_info_line_index = 0
@@ -78,7 +77,7 @@ def main():
                     line_contents = ": ".join(line_parts[1:len(line_parts)])
                 # Handle lines where there does not appear to be a header
                 elif len(line_parts) == 1:
-                    line_contents = line_parts[0]
+                    line_contents = line_text
 
                 # Handle where there is an unexpected header
                 if line_header != "" and line_header in possible_headers:
@@ -86,10 +85,10 @@ def main():
                     current_header = line_header
                 else:
                     # Add the value that was assumed to be a header back to the content
-                    line_contents = ": ".join(line_parts[0:len(line_parts)])
+                    line_contents = line_text
                 
                 # Add a key with the current header value to the article representation if it doesn't exist
-                if line_header not in article:
+                if current_header not in article:
                     article[current_header] = ""
 
                 # Handle the short hand for the article title
@@ -102,11 +101,14 @@ def main():
                     else:
                         article[current_header] = "{}\n{}".format(article[current_header], line_contents)
                 # Separate out the document URL from the publication information
-                elif current_header == "Publication info" and article_info_line_index == 2:
+                elif current_header == "Publication info" and "http" in line_contents:
                     article["Document URL"] = line_contents
                 # Handle every other piece of information
                 else:
-                    article[current_header] = "{}\n\n{}".format(article[current_header], line_contents)
+                    if article[current_header] == "":
+                        article[current_header] = line_contents
+                    else:
+                        article[current_header] = "{}\n{}".format(article[current_header], line_contents)
 
             article_info_line_index += 1
 
