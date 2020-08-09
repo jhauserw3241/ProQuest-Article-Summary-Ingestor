@@ -9,7 +9,7 @@ These scripts use Python 3. The Python xlsxwriter library is used for the creati
 ## Steps
 Follow the below steps to utilize the scripts.
 1. Run a search on the ProQuest database.
-2. Download the results of the search into the text file format. The text file should match the included example-input.txt.
+2. Download the results of the search into the text file format. The text file should match the included example-input.txt. Additionally, all of the results need to be consolidated into one text file before feeding the results into the Python script.
 3. Create a Python virtual environment. Reference: https://docs.python.org/3/library/venv.html
 4. Activate the virtual environment.
 
