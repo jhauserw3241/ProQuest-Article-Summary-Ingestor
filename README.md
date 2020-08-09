@@ -24,3 +24,5 @@ Follow the below steps to utilize the scripts.
 8. Run the ingestor script on the input file.
 
     `python ingest-articles-text-file.py <path-to-input-text-file>.txt <path-to-output-excel-file>.xlsx`
+
+Note: The file that the results will be overwritten and any contents of that file will be deleted.
