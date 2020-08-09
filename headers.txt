@@ -1,7 +1,6 @@
 Author
 Publication info
 Abstract
-Links
 Full text
 Subject
 Location
@@ -21,17 +20,6 @@ Source type
 Language of publication
 Document type
 ProQuest document ID
-Document URL
 Copyright
 Last updated
 Database
-People
-CREDIT
-CAPTION
-OPINION
-Credit
-Dateline
-Illustration Caption
-Pages
-Number of pages
-Solicitors
